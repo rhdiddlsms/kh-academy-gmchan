@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!--1. 히어로 이미지 디자인,  2.본문영역 문서 나누기 3. 컨테이너 영역 잡기.
+    큰 골격은 어디가 머리일지 어디가 본문일지 어디가 푸터일지 잡고 그 다음에 스타일 지정 -->
+<html>
+    <head>
+        <title>layout tutorial</title>
+        <style>
+            *, *::before, *::after {
+                box-sizing: border-box;
+            }
+
+            html, body {
+                margin: 0;
+            }
+            
+            .hero{
+                background-image: 
+                    url('https://t1.daumcdn.net/cfile/tistory/997E5C3C5BA1E68137'),
+                    radial-gradient(rgb(255, 255, 255), rgb(0, 255, 221));
+                
+                background-blend-mode: multiply;
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                height: 100vh;
+                background-position : center center;
+                font-size:  15px;
+                padding-top: 28rem;
+                padding-left: 12rem;
+                color : white;
+            }
+            
+            h1, p, blockquote {
+                margin: 0;
+            }
+
+            .container{
+                width: 85%;
+                max-width: 65em;
+                margin: 0 auto;
+            }
+
+            .primary-title{
+                font-color : white;
+            }
+            
+            .article-spacing {
+                margin-top: 3rem;
+                width : 45%
+            }
+
+            .article-spacing > h1{
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+            }
+            .article-spacing > p, blockquote{
+                font-size: 1.3rem;
+                text-indent: 1rem;
+                margin-bottom: 2.4rem;
+            }
+
+            .article-spacing > blockquote{
+                padding-left: 1rem;
+                border-left :5px solid gray;
+                background-color: #f5f5f5;
+            }
+            
+            .article-spacing> p:hover{
+                background-color: #f5f5f5;
+                cursor: pointer;
+            }
+            .image-box > img{
+                filter : brightness(96%);
+                width: 100%;
+                display: block;
+                margin: auto;
+
+            }
+
+            .image-box
+            
+
+            footer{
+                background-color: orange;
+            }
+
+
+            
+        </style>
+    </head>
+
+    <body>
+        <header class="hero">
+            
+            <div class="container">
+                <h1 class="primary-title" >너부리는</h1>
+                <p>내일 나한테</p>
+                <p>까만 돌맹이를 줄꺼야!  </p>
+                <p>포로리한테 땅강아지를 줄거야!</p>
+                <p>그러니까 헛소리 하지마 임마!</p>
+            </div>
+
+      
+        </header>
+        <main>
+            <article>
+                <div class="container article-spacing">
+                    <h1>👀제목1</h1>
+                    <p>포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야포로리야</p>
+
+                    <blockquote>
+                        <p>인용구는 여기에</p>
+                        <p>포로리야~</p>
+                    </blockquote>
+                    <p>여전히 내용</p>
+                    <h1>😜제목2</h1>
+                    <p>너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야너부리야</p>
+
+                    <div class="img-box">
+                        <img src="https://pbs.twimg.com/profile_images/901509367316463616/EPMHd6Cd_400x400.jpg"/>
+                        <p><h3>나 때릴꺼야??</h3></p>
+                    </div>
+                </div>
+            </article>
+        </main>
+        <footer>
+            <div class="footer">
+                <div class="container info-container">
+                    <div class="info-container-item">
+                        <h1>제목1</h1>
+                        <p>내용1</p>
+                    </div>
+                    <div class="info-container-item">
+                        <h1>제목2</h1>
+                        <p>내용2</p>
+                    </div>
+                    <div class="info-container-item">
+                        <h1>제목3</h1>
+                        <p>내용3</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
+

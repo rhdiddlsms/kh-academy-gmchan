@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <!--head에는 title, meta 태그 들어감-->
+        <title>오늘 하는거</title>
+        <style>
+            :root{
+                --color-login-form-background : #ffffff;
+                --color-login-btn : #2bdb1b;
+                --color-login-btn-hover: #5b9768;
+            }
+
+            .login-form {
+                background-color: var(color-login-form-background);
+                width: 310px;
+                height: 228px;
+                margin: 16px 0 0;
+                border: 2px solid #ff7300; 
+                border-radius: 5px;
+                padding : 20px;
+                box-sizing: border-box;
+            }
+
+            label{
+                font-size: 20px;
+                font-weight: 600;
+            }
+
+            .basic-input{
+                box-sizing: border-box;
+                width: 100%;
+                border: 1px solid #eaecef;
+                border-radius: 3px;
+                height: 26px;
+            }
+
+            .basic-input-submit{
+                margin-top: 20px;
+                background-color: var(--color-login-btn);
+                text-decoration: none;
+                width: 100%;
+                height: 32px;
+                color: #ffffff;
+                border: 0;
+                border-radius: 3px;
+            }
+
+            .basic-input-submit:hover{
+                background-color: var ( --color-login-btn-hover);
+                cursor : pointer;
+            }
+            
+        </style>
+        <!--border-radius: 5px; 는 테두리를 둥글게 하는거 크기가 커질수록 더 둥그러짐-->
+    </head>
+
+    <!--body-->
+    <body>
+        <form method="GET" action= "/login" name="user-login" class="login-form">
+            <label> Username or email address</label>
+            <input name="Username" type = "text" class="basic-input"/>  <!--인풋은 타입이 존재함-->
+            
+            <label>Password</label>
+           
+            <input name = "password" type = "password" class="basic-input"/>
+            
+            <input type = "submit" value="Sign In" class = "basic-input-submit"/>
+        </form>
+
+    </body>
+
+</html>

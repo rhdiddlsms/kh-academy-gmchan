@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>브라우저 제어하기</title>
+        <style>
+            .box{
+                width: 100px;
+                height: 100px;
+                background-color: orange;
+            }
+            p {
+                background-color: crimson;
+                cursor: pointer;
+            }
+
+            d {
+                background-color: blue;
+                cursor: pointer;
+            }
+
+            s {
+                background-color: gray;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div onclick="alert('div')" class="box">
+            <p onclick="alert('p')">내용같은거</p>
+        </div>
+        <script>
+            const d = document.getElementById('d')
+            const p = document.getElementById('p')
+            const s = document.getElementById('s')
+
+            d.addEventListener('click', e => {
+                console.log('div 누름')
+            })
+
+            p.addEventListener('click', e => {
+                console.log('paragraph 누름')
+            })
+
+            s.addEventListener('click', e => {
+                console.log('span 누름')
+            })
+        </script>
+
+    </body>
+
+</html>

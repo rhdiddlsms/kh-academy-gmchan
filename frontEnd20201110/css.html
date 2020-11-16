@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--input의 흐름들 보는 html-->
+<html>
+    <head>
+    <!--head에는 title, meta 태그 들어감-->
+        <title>CSS살짝 배워보자</title>
+        <!--문서 내부에 지정.-->
+        <style>
+            .paragraph-style {
+                background-color: aqua;
+                color: maroon;
+            }
+
+            .font-style{
+                font-size : 2rem;
+                color : #c0ffee;
+            }
+
+            #p1 {
+                
+                padding-bottom: 40px;
+                padding-top: 40px;
+                padding-right: 40px;
+                padding-left: 40px;
+            }
+        </style>
+    </head>
+
+    <!--body-->
+    <body>
+
+        <!-- 인라인 스타일 지정-->
+        <p id = "p1" class= "paragraph-style font-style">
+
+            이금찬찬찬찬찬찬찬찬찬찬찬찬찬찬찬찬찬찬찬찬찬찬찬찬찬찬찬찬찬찬찬찬찬찬찬찬찬찬찬ㅋㄷㅋㄷㅋㄷㅋㄷㅋㄷㅋㄷㅋㄷㅋㄷㅋㄷㅋㄷㅋㄷㅋㄷㅋ
+        </p>
+
+
+        <div id="container">
+            <h1 id="ct-h1">title</h1>
+            <p>문단같은거</p>
+            <ul>
+                <li>1 depth - A
+                    <ul>
+                        <li>2depth - A</li>
+                        <li>2depth - A</li>
+                        <h1>갑자기 제목</h1>
+                    </ul>
+                </li>
+                <li>1 depth - B
+                    <ul>
+                        <li>2depth - B</li>
+                        <li>2depth - B</li>
+                        <li>2depth - B</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+    </body>
+
+</html>
