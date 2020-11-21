@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>당근마켓 회원가입</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+        <style>
+            html, body {
+                position: relative;
+                color: #212529;
+                font-family: 'Noto Sans JP', sans-serif;
+                font-weight: 400;
+                min-height: 100%;
+            }
+
+            section, article, aside, footer, header, nav, hgroup {
+                display: block;
+            }
+
+            a {
+                -webkit-tap-highlight-color: rgba(73, 80, 87, 0.05);
+            }
+
+            *, *::before, *::after{
+                box-sizing: border-box;
+            }
+
+            * {
+                padding: 0;
+                margin: 0;
+                outline: none;
+            }
+
+            #fixed-bar {
+                width: 100%;
+                background-color: #fff;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 100;
+            }
+
+            /*<header> class제어*/
+            .fixed-bar-box-shadow {
+                box-sizing: border-box;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+                border-bottom-width: 1px;
+                border-bottom-style: solid;
+                border-bottom-color: rgba(0, 0, 0, 0.04);
+            }
+
+            #fixed-bar #fixed-bar-wrap {
+                width: 1024px;
+                margin: 0 auto;
+                padding: 16px 0;
+                position: relative;
+            }
+
+
+            a:-webkit-any-link {
+                color: -webkit-link;
+                cursor: pointer;
+                text-decoration: underline;
+            }
+
+            .sr-only {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0 0 0 0);
+                border: 0;
+            }
+            
+            .fixed-logo{
+                width: 120px;
+                vertical-align: text-bottom;
+                margin-bottom: 5px;
+            }
+
+                                    /*헤더 끄으으으으읕*/
+
+
+            /*헤더 아래에 바로 오는 값*/
+            #home-main-section-top {
+                    margin-top: 72px;
+                    padding-top: 0px;
+                    background-color: #fdecd6;
+                }
+
+                .form-container{
+                max-width: 400px; 
+                height: 125vh;  /*(vh)뷰포트 높이(창 사이즈의 높이)의 140%면 1.4배를 넣어주겠다 라는 소리*/
+                background-color: rgb(247, 190, 152);
+                margin: 0 auto;  /*처음 0은 위 아래 뒤에 auto는 좌 우 비율 맞춰서 해줌*/
+                padding: 0 45px 100px 45px; /*t r b l  위 오른 아래 왼*/
+            }
+
+            
+            .sign-up-header {
+                text-align: center;  
+                padding: 60px 0 26px 0 ;
+
+            }
+            .sign-up-header >h2 {
+                font-size: 1.1rem;
+                font-weight: 600;
+            }
+
+            .form-box-field{
+                margin-bottom: 1rem;
+            }
+            
+           
+            .form-box-field > .form-box-field-input {
+                width: 100%;
+                height: 50px;
+                outline: none;
+                border : 1px solid #e5e5e5;
+                font-size: 0.8rem;
+                text-indent: 0.5rem;
+            }
+
+            .form-box-field > .form-box-field-input::placeholder{ 
+                color: #cccccc;
+            }
+            .form-box-field > .form-box-field-input:focus{ 
+                border-color: #aaaaaa;
+                
+                transition: border 0.3s ease-in-out;  
+            }
+
+            .field-required {
+                display: inline-block;
+                width: 3px;
+                height: 3px;
+                background-color: red;
+                border-radius: 100%;
+                text-indent: -99999999999999px; 
+            }
+            
+            .form-box-field > .warn-info {
+                margin-top: 0.5rem;
+                font-size: 0.8rem;
+                color: red;
+                display: none;
+            }
+
+            .form-box-field.warn > .warn-info {
+                display: block;
+            }
+
+            .form-box-field > label {
+                display: inline-block; 
+                margin-bottom: 0.3rem;
+            }
+
+           
+            .terms-box input{
+                display: block;
+                width: 0;
+                height: 0;
+                overflow: hidden;
+                visibility: hidden;
+                position: absolute;
+            }
+
+            .terms-box label {
+                padding-left: 1.5rem;
+                position: relative; 
+                cursor: pointer;
+                user-select: none;
+                
+            }
+
+            
+            .terms-box label::before{
+                content: '';
+                display: block;
+                position: absolute; 
+                top: 0;
+                left : 0;
+                width: 18px;
+                height: 18px;
+                border-radius: 100%;
+                border: 1px solid #cccccc;
+                background-color: #f1f1f1;
+            }
+
+           
+            .terms-box input:checked ~ label::before {
+                background-color: #0078ff;
+                border-color: #0078ff;
+            } 
+
+            .terms-box label::after{
+                content: '';
+                display: block;
+                position: absolute;
+                width: 7px;
+                height: 4px;
+                border-left: 2px solid white;
+                border-bottom: 2px solid white;
+                top: 6px;
+                left: 5.8px;
+                transform: rotate(-45deg);
+                visibility: hidden;
+            }
+            
+            .terms-box input:checked ~ label::after{
+                visibility: visible;
+            }
+
+            .terms-box > div{
+                overflow: hidden;
+                margin-top: 20px;
+            }
+
+            .terms-box2 , .terms-box3, .terms-box4 {
+                margin-top: 1.3rem;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            
+
+            button {
+                
+                margin: 0;
+                padding: 0;
+                border: 0;
+                cursor: pointer;
+                line-height: 1.5;
+                background: none;
+                outline: none;
+            }
+
+            .link {
+                display: block;
+                font-size: 12px;
+                color: #777777;
+                text-decoration: underline;
+                float: right;
+                margin-top: 1px;
+            }
+
+            .member-btn {
+                position: static;
+                padding: 10px 0;
+                margin: 40px auto 0 auto;
+            }
+
+            .n-btn {
+                display: block;
+                width: 100%;
+                height: 50px;
+                background-color: #777777;
+                border: 1px solid #000000;
+                line-height: 47px;
+                color: #ffffff;
+                box-sizing: border-box;
+                padding: 1px 10px 0 10px;
+                font-size: 14px;
+                text-align: center;
+            }
+
+
+            .or-bar-box {
+                position: relative;
+            }
+
+            .or-bar {
+                position: absolute;
+                top: 10px;
+                display: block;
+                width: 24%;
+                border-bottom: 1px solid #2f2f2f;
+            }
+
+            .or-bar-left {
+                left: 0;
+            }
+
+            .or-bar-right {
+                right: 0;
+            }
+
+
+
+            .join-sns-hd {
+                margin: 0;
+                font-size: 11px;
+                line-height: 20px;
+                font-weight: 400;
+                text-align: center;
+                color: #a5a5a5;
+            }
+
+            .btn-sns-join {
+                margin: 40px auto;
+                font-size: 0;
+                text-align: center;
+            }
+
+            .btn-sns-join li {
+                display: inline-block;
+                width: 60px;
+                border-radius: 100px;
+
+                cursor: pointer;
+            }
+
+
+            .btn-sns-join > li:nth-child(1) {
+                background-color: #fff100;
+            }
+
+            .btn-sns-join > li:nth-child(2) {
+                background-color: #fff;
+            }
+
+            .btn-sns-join > li:nth-child(3) {
+                background-color: #23b909;
+            }
+
+            .btn-sns-join > li:nth-child(4) {
+                background-color: #3b5998;
+            }
+
+            .btn-sns-join > li:nth-child(5) {
+                background-color: #fff;
+            }
+
+
+
+            
+            /*FOOTERFOOTERFOOTERFOOTERFOOTERFOOTERFOOTERFOOTERFOOTERFOOTER*/
+            footer {
+                background-color: #495057;
+                color: bisque;
+                padding: 5rem 0px;
+            }
+
+            .footer-container{
+                width: 60%;
+                margin : 0 auto;
+            }
+
+            .info-container{
+                display: flex;
+                
+            }
+
+            .info-item{
+                padding: 0 1rem;
+                flex: 1 1 0;
+            }
+
+            .info-container > h2 {
+                font-size: 1rem;
+                margin: 0;
+            
+            }
+
+            .border-bottom {
+                margin-top: 4rem;
+                border-bottom :2px solid gray;
+            }
+
+            .logo-container{
+                margin-top: 1.3rem;
+                display: flex;
+                justify-content: space-between;
+                
+            }
+
+            .logo-container > img {
+                margin: 0.5rem;
+                width: 100px;
+                height: 50px;
+                flex: 1 1 1;
+            }
+
+            .menu-box{
+
+                display: flex;
+            }
+
+            .menu-box > img {
+                margin-top: 0rem;
+                padding : 0 1rem;
+                font-weight: 400;
+                cursor: pointer;
+            }
+
+
+        </style>
+    </head>
+    <body class="gmchan-kr">
+        <header id="fixed-bar" class="fixed-bar-box-shadow">
+            <div id="fixed-bar-wrap">
+                <h1 id="fixed-bar-logo-title">
+                    <a href="http://127.0.0.1:5500/frontEnd20201118/Exam.html">
+                        <span class="sr-only"><h6>금찬헬스!</h6></span>
+                        <img class="fixed-logo" alt="당근마켓" src="https://d1unjqcospf8gs.cloudfront.net/assets/home/base/header/logo-basic-24b18257ac4ef693c02233bf21e9cb7ecbf43ebd8d5b40c24d99e14094a44c81.svg">
+                    </a>
+                </h1>
+            </div>
+        </header>
+
+        <main>
+            <section id="home-main-section-top" class="background-pale-peach">
+                <div class="form-container">
+                    <header class="sign-up-header">
+                        <div class="logo-box">
+                            <img src="https://d1unjqcospf8gs.cloudfront.net/assets/home/base/header/logo-basic-24b18257ac4ef693c02233bf21e9cb7ecbf43ebd8d5b40c24d99e14094a44c81.svg"/>
+                        </div>
+                        <h2>회원가입</h2>
+                    </header>
+                    <main>
+                        <!--디자인의 영향을 안주고 input값들 처리하려고 생각.-->
+                        <form class="form-box" name="sign-up-form">
+                            <div class="form-box-field warn">
+                                <label>
+                                    아이디
+                                    <span class ="field-required">ㅋㅋㅋㅋ</span>
+                                </label>
+                                <input class="form-box-field-input" type="text" placeholder="아이디 입력(5~11자)"/> <!--placeholder는 hint처럼 회색 글자로 들어감.-->
+                                <p class="warn-info">아이디는 필수정보입니다.</p>
+                            </div>
+        
+                            <div class="form-box-field warn">
+                                <label>
+                                    비밀번호
+                                    <span class ="field-required">ㅋㅋㅋㅋ</span>
+                                </label>
+                                <input class="form-box-field-input" type="password" placeholder="비밀번호(숫자, 영문, 특수문자 조합 8자 이상)"/> <!--placeholder는 hint처럼 회색 글자로 들어감.-->
+                                <p class="warn-info">비밀번호는 필수정보입니다.</p>
+                            </div>
+        
+                            <div class="form-box-field warn">
+                                <label>
+                                    이메일
+                                    <span class ="field-required">ㅋㅋㅋㅋ</span>
+                                </label>
+                                <input class="form-box-field-input" type="email" placeholder="사용자id@example.com"/> <!--placeholder는 hint처럼 회색 글자로 들어감.-->
+                                <p class="warn-info">이메일은 필수정보입니다.</p>
+                            </div>
+        
+                            <div class="form-box-field warn">
+                                <label>
+                                    추천인
+                                </label>
+                                <input class="form-box-field-input" type="text" placeholder="추천인 아이디 입력"/> <!--placeholder는 hint처럼 회색 글자로 들어감.-->
+                            </div>
+        
+                            <!--라벨 클릭해도 체크박스 선택된다.
+                            스타일<style>에서 input:checked ~ label {color:red} 해주면 체크되면 라벨의색이 레드로 변함-->
+                            <!--약관에 동의 item-->
+
+                            <div class="terms-box">
+                                <div class="terms-box1">
+                                    <input id= "all-dong-eui" type="checkbox" class="terms-agreement"/>
+                                    <label for= "all-dong-eui"><strong>약관 전체동의</strong></label>
+                                </div>
+        
+                                <div class="terms-box2">
+                                    <input id= "dong-eui1"type="checkbox" class="terms-agreement"/>
+                                    <label for= "dong-eui1">개인정보 수집 이용동의(필수)</label>
+                                    <button type="button" class="link" onclick="privacyAgreeUsagePopBtnClickHandler()">약관보기</button>
+                                </div>
+        
+                                <div class="terms-box3">
+                                    <input id= "dong-eui2"type="checkbox" class="terms-agreement"/>
+                                    <label for= "dong-eui2">당근마켓 이용약관(필수)</label>
+                                    <button type="button" class="link" onclick="privacyAgreeUsagePopBtnClickHandler()">약관보기</button>
+                                </div>
+        
+                                <div class="terms-box4">
+                                    <input id= "dong-eui3"type="checkbox" class="terms-agreement"s/>
+                                    <label for= "dong-eui3">광고성 정보 수신 동의(선택)</label>
+                                    <button type="button" class="link" onclick="privacyAgreeUsagePopBtnClickHandler()">약관보기</button>
+                                </div>
+        
+                                <div class="terms-box5">
+                                    <input id= "dong-eui4"type="checkbox" class="terms-agreement"/>
+                                    <label for= "dong-eui4">만 14세 미만 가입 제한(필수)</label>
+                                </div>
+
+
+                                <div id="joinBtnDiv" class="member-btn">
+                                    <button type="submit" id="joinBtn" class="n-btn btn-primary disabled">본인인증하고 회원가입</button>
+                                </div>
+                                
+
+                            </div>
+        
+        
+                        </form>
+                    </main>
+
+                    <div class="or-bar-box">
+                        <span class="or-bar or-bar-left"></span>
+                            <h3 class="join-sns-hd">또는 다른 서비스 계정으로 가입</h3>
+                        <span class="or-bar or-bar-right"></span>
+                    </div>
+
+                    <ul class="btn-sns-join">
+                        <li>
+                            <img src="https://member.wavve.com/images/member/ico-common-kakao.png" alt="카카오로 시작하기">
+                        </li>
+                        <li>
+                            <img src="https://member.wavve.com/images/member/ico-common-tworld.png" alt="T아이디로 시작하기">
+                        </li>
+                        <li>
+                            <img src="https://member.wavve.com/images/member/ico-common-naver.png" alt="네이버로 시작하기">
+                        </li>
+                        <li>
+                            <img src="https://member.wavve.com/images/member/ico-common-facebook.png" alt="페이스북으로 시작하기">
+                        </li>
+                        <li>
+                            <img src="https://member.wavve.com/images/member/ico-common-apple.png" alt="Apple 아이디로 시작하기">
+                        </li>
+                    </ul>
+
+                </div>
+
+
+            </section>
+        </main>
+        <footer>
+
+            <div class="footer-container">
+                <div class="info-container">
+                    <div class="info-item">
+                        <h2>Home</h2>
+                    </div>
+                    <div class="info-item">
+                        <h2>Login</h2>
+                    </div>
+                    <div class="info-item">
+                        <h2>Register</h2>
+                    </div>
+                </div>
+                <div class="border-bottom"></div>
+                <div class="logo-container">
+                    <img src="https://d1unjqcospf8gs.cloudfront.net/assets/home/base/header/logo-basic-24b18257ac4ef693c02233bf21e9cb7ecbf43ebd8d5b40c24d99e14094a44c81.svg"/>
+
+                    <div class="menu-box">
+                        <img src="https://d1unjqcospf8gs.cloudfront.net/assets/home/base/footer/icon-facebook-0563f4a93852d073b41f13b8bcabb03d47af3bb3a6755cdfedd8a73686c7f18c.svg"/>
+                        <img src="https://d1unjqcospf8gs.cloudfront.net/assets/home/base/footer/icon-instagram-2f6c88a461597907c114b7ce28eab053fcae791ed26417915fefb6f7c9f95756.svg"/>
+                        <img src="https://d1unjqcospf8gs.cloudfront.net/assets/home/base/footer/icon-blog-e1b0d512d1766a6962ec5bbb5b0803d2a6a9c55ad97db5ba9eebb76013caceba.svg"/>
+
+                    </div>
+                    
+                </div>
+                
+            </div>
+
+        </footer>
+
+    </body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>회원가입</title>
+        <style>
+            html, body {
+                margin: 0;
+                background-color: #f1f1f1;
+            }
+
+            *, *::before, *::after{
+                box-sizing: border-box;
+            }
+        /*befor after예제
+            laber:::before {content: '-'}
+            laber:::after {content: '-'}
+            해주면 -  라벨  -  로 나타나게됨.
+        */
+
+            p {
+                margin: 0;
+            }
+            /*처음에 설정하는거 끝나는 부분!!!!!(전역설정ㅋㄷㅋㄷ)*/
+
+            .form-container{
+                max-width: 400px; 
+                height: 140vh;  /*(vh)뷰포트 높이(창 사이즈의 높이)의 140%면 1.4배를 넣어주겠다 라는 소리*/
+                background-color: white;
+                margin: 0 auto;  /*처음 0은 위 아래 뒤에 auto는 좌 우 비율 맞춰서 해줌*/
+                padding: 0 45px 100px 45px; /*t r b l  위 오른 아래 왼*/
+            }
+
+            /*rem은 */
+            .sign-up-header {
+                text-align: center;  /*가운데 정렬 느낌*/
+                padding: 60px 0 26px 0 ;
+
+            }
+            .sign-up-header >h2 {
+                font-size: 1.1rem;
+                font-weight: 600;
+            }
+
+            .form-box-field{
+                margin-bottom: 1rem;
+            }
+            
+            /*아이디 입력창*/
+            .form-box-field > .form-box-field-input {
+                width: 100%;
+                height: 50px;
+                outline: none;
+                border : 1px solid #e5e5e5;
+                font-size: 0.8rem;
+                text-indent: 0.5rem; /*들여쓰기 속성*/
+            }
+
+            .form-box-field > .form-box-field-input::placeholder{ /* ::는 문서에 있을때 ? 아 검색해보자 */
+                color: #cccccc;
+            }
+            .form-box-field > .form-box-field-input:focus{ /* : 는 가상선택자 문서에 없는데 선택 할 때*/
+                border-color: #aaaaaa;
+                /*transition속성 : [어떤속성] [ 전환시간s] []   */
+                transition: border 0.3s ease-in-out;  
+            }
+
+            .field-required {
+                display: inline-block;
+                width: 3px;
+                height: 3px;
+                background-color: red;
+                border-radius: 100%;
+                text-indent: -99999999999999px; /*text를 왼쪽 끝으로 밀어 넣어서 box만 남게함.*/
+            }
+            
+            .form-box-field > .warn-info {
+                margin-top: 0.5rem;
+                font-size: 0.8rem;
+                color: red;
+                display: none;
+            }
+
+            .form-box-field.warn > .warn-info {
+                display: block;
+            }
+
+            .form-box-field > label {
+                display: inline-block; /*box속성을 먹고 margin 속성을 사용 할 수 있음. 기존은 inline이여서 margin을 못받아서 이 속성을 사용.*/
+                margin-bottom: 0.3rem;
+            }
+
+            /*약관동의 item 후손 선택은 space만 누르면 후손 선택이 됩니다.*/
+            .terms-box input{
+                display: block;
+                width: 0;
+                height: 0;
+                overflow: hidden;
+                visibility: hidden;
+                position: absolute;
+            }
+
+            .terms-box label {
+                padding-left: 1.5rem;
+                position: relative; /*해주면 padding에 공간이 생김*/
+                cursor: pointer;
+                user-select: none;
+                
+            }
+
+            /*label 왼쪽에 있는 체크박스 속성 나타내는 style*/
+            .terms-box label::before{
+                content: '';
+                display: block;
+                position: absolute; /*절대좌표가 되면서 어디 있던(박스가 생겨도) 안밀림.*/
+                top: 0;
+                left : 0;
+                width: 18px;
+                height: 18px;
+                border-radius: 100%;
+                border: 1px solid #cccccc;
+                background-color: #f1f1f1;
+            }
+
+            /*텀스 박스의 인풋의 후손 checked가 label::before가 된다면?*/
+            .terms-box input:checked ~ label::before {
+                background-color: #0078ff;
+                border-color: #0078ff;
+            } 
+
+            .terms-box label::after{
+                content: '';
+                display: block;
+                position: absolute;
+                width: 7px;
+                height: 4px;
+                border-left: 2px solid white;
+                border-bottom: 2px solid white;
+                top: 6px;
+                left: 5.8px;
+                transform: rotate(-45deg);
+                visibility: hidden;
+            }
+            
+            .terms-box input:checked ~ label::after{
+                visibility: visible;
+            }
+
+        </style>
+
+    </head>
+    <body>
+        <div class="form-container">
+            <header class="sign-up-header">
+                <div class="logo-box">
+                    <img src="https://image.msscdn.net/ui/musinsa/resources/common/image/logo_mwusinsa.svg"/>
+                </div>
+                <h2>회원가입</h2>
+            </header>
+            <main>
+                <!--디자인의 영향을 안주고 input값들 처리하려고 생각.-->
+                <form class="form-box" name="sign-up-form">
+                    <div class="form-box-field warn">
+                        <label>
+                            아이디
+                            <span class ="field-required">이 글을 읽으면 넌 개발자야</span>
+                        </label>
+                        <input class="form-box-field-input" type="text" placeholder="아이디 입력(5~11자)"/> <!--placeholder는 hint처럼 회색 글자로 들어감.-->
+                        <p class="warn-info">아이디는 필수정보입니다.</p>
+                    </div>
+
+                    <div class="form-box-field warn">
+                        <label>
+                            비밀번호
+                            <span class ="field-required">이 글을 읽으면 넌 개발자야</span>
+                        </label>
+                        <input class="form-box-field-input" type="password" placeholder="비밀번호(숫자, 영문, 특수문자 조합 8자 이상)"/> <!--placeholder는 hint처럼 회색 글자로 들어감.-->
+                        <p class="warn-info">비밀번호는 필수정보입니다.</p>
+                    </div>
+
+                    <div class="form-box-field warn">
+                        <label>
+                            이메일
+                            <span class ="field-required">이 글을 읽으면 넌 개발자야</span>
+                        </label>
+                        <input class="form-box-field-input" type="email" placeholder="사용자id@example.com"/> <!--placeholder는 hint처럼 회색 글자로 들어감.-->
+                        <p class="warn-info">이메일은 필수정보입니다.</p>
+                    </div>
+
+                    <div class="form-box-field warn">
+                        <label>
+                            추천인
+                        </label>
+                        <input class="form-box-field-input" type="text" placeholder="추천인 아이디 입력"/> <!--placeholder는 hint처럼 회색 글자로 들어감.-->
+                    </div>
+
+                    <!--라벨 클릭해도 체크박스 선택된다.
+                    스타일<style>에서 input:checked ~ label {color:red} 해주면 체크되면 라벨의색이 레드로 변함-->
+                    <!--약관에 동의 item-->
+                    <div class="terms-box">
+                        <div>
+                            <input id= "all-dong-eui" type="checkbox" class="terms-agreement"/>
+                            <label for= "all-dong-eui">약관 전체 동의</label>
+                        </div>
+
+                        <div>
+                            <input id= "dong-eui1"type="checkbox" class="terms-agreement"/>
+                            <label for= "dong-eui1">동의 하기 싫어?</label>
+                        </div>
+
+                        <div>
+                            <input id= "dong-eui2"type="checkbox" class="terms-agreement"/>
+                            <label for= "dong-eui2">가입 하기 싫어?</label>
+                        </div>
+
+                        <div>
+                            <input id= "dong-eui3"type="checkbox" class="terms-agreement"s/>
+                            <label for= "dong-eui3">물건 안살 꺼야?</label>
+                        </div>
+
+                        <div>
+                            <input id= "dong-eui4"type="checkbox" class="terms-agreement"/>
+                            <label for= "dong-eui4">사람 좋아 보여?</label>
+                        </div>
+                        
+                    </div>
+
+
+                </form>
+            </main>
+        </div>
+    </body>
+</html>
