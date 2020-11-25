@@ -1,0 +1,56 @@
+<!--
+  select 박스를 이용해 선택한 이메일주소를 
+  name="email2"인 input의 값으로 넣기위한 코드를 작성하였으나, 
+  정상적으로 동작하지 않았습니다. 
+  
+  정상적으로 동작하지 않은 이유와 조치내용을 작성하세요.
+
+  * 조건
+    1. select에서 메일을 선택하면 선택된 메일의 값이 name="email2"인 input의 값으로 입력되어야 한다.
+    2. 직접입력 선택 시 name="email2"인 input의 값이 초기화되어야 한다.
+
+    의심.
+    1. 핸들러 부터 의심 해보자
+    console.log(mail2);로 어떻게 나오는지 확인하기
+-->
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>이메일선택</title>
+</head>
+
+<body>
+    <h3>이메일입력</h3>
+    <hr>
+    <input type="text" name="email1">@<input type="text" name="email2">
+    <select name="selMail" id="selectBox" onchange="selectMail(this);">
+
+        <!-- 2.3. option 벨류에서 직접입력을 빈 문자열로 사용해도 된다.-->
+        <option value="직접입력">직접입력</option>
+        <option value="naver.com">naver.com</option>
+        <option value="google.com">google.com</option>
+        <option value="hanmail.net">hanmail.net</option>
+    </select>
+    <script>
+        function selectMail(obj) {
+            // console.log(obj); //obj의 value는 선택한 값을 표현한다 
+            var mail2 = document.getElementsByName("email2");
+
+            var selectedValue = obj.value;
+            // 1. console.log(mail2);  //mail2는 배열로 표시되기 떄문에 인덱스로 사용
+            // 2.1. 삼항 연산자로 사용
+            mail2[0].value = selectedValue != '직접입력' ? selectedValue : ''
+
+            //2.2. if문을 사용 했을 때 직접입력에 대한 처리코드
+            if(obj.value === '직접입력'){
+                mail2[0].value = ''
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>​
