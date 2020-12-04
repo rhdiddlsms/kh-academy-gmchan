@@ -39,8 +39,6 @@
 
 # 1.1.프로그래밍(공부 할 것들)
 
-# 1.1. 프로그래밍
-
 - Java
   - ✔ http://www.yes24.com/Product/Goods/65551284?OzSrank=1
 - OOP
@@ -86,7 +84,7 @@
   - Adobe XD
   - Zeplin
 
-# 2.1. 서적
+## 2.1. 서적
 
 - http://www.yes24.com/Product/Goods/92742567?OzSrank=1
 - http://www.yes24.com/Product/Goods/91213376?OzSrank=3

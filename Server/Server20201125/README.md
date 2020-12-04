@@ -3,6 +3,7 @@
 - [목차](#목차)
 - [1. 용어 정리](#1-용어-정리)
 - [2. 스프링 기본 사용 방법](#2-스프링-기본-사용-방법)
+  - [2.0. 의존성 주입](#20-의존성-주입)
   - [2.1. 컨트롤러](#21-컨트롤러)
     - [2.1.1. Controller](#211-controller)
     - [2.1.2. RestController](#212-restcontroller)
@@ -26,11 +27,13 @@ IoC (Inversion of Control)
 스프링 프레임워크를 일컷는말
 * IoC Container
   * Been : 스프링에서 관리하는 객체. 라이프사이클 존재.
-    * Component : been을 위한 어노테이션
-      * Controller
-      * RestController
-      * Service
-      * Repository
+    * `@Component` : been을 위한 어노테이션
+      * `@Controller`
+      * `@RestController`
+      * `@Service`
+      * `@Repository`
+    * `@Bean`
+      * 주로 외부 라이브러리를 사용할 때 사용함.
     * 빈을 등록하는 과정
       * 스프링 프레임워크가 시작되면 등록할 클래스를 탐색해서(xml, java Config(annotation) 두가지 방법으로) IoC컨테이너에 등록.
       * 스프링의 빈은 기본적으로 싱글톤임.
@@ -83,6 +86,12 @@ public @interface Test {
 - Repository
   - 저장과 관련된 인터페이스
   - 인터페이스 구현체
+
+## 2.0. 의존성 주입
+
+- 생성자 주입 방식
+- `@Autowired`
+- `@Inject` (deprecated)
 
 ## 2.1. 컨트롤러
 

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .tab{
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background-color: #f1f1f1;
+    }
+    .tab > div{
+      float: left;
+      width: 100px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 17px;
+    }
+    .tab > div:hover{
+      background-color: #ddd;
+    }
+    .tabcontent{
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-top: none;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h2>탭메뉴를 선택해보세요</h2>
+  <hr>
+  <div class="tab">
+    <div class="tablink" onclick="changeTab(this);">html</div>
+    <div class="tablink" onclick="changeTab(this);">css</div>
+    <div class="tablink" onclick="changeTab(this);">javascript</div>
+  </div>
+  <div id="html" class="tabcontent">
+    <h3>HTML</h3>
+    <p>HyperText Markup Language</p>
+  </div>
+  <div id="css" class="tabcontent">
+    <h3>CSS</h3>
+    <p>Cascading Style Sheet</p>
+  </div>
+  <div id="javascript" class="tabcontent">
+    <h3>JAVASCRIPT</h3>
+    <p>JAVASCRIPT</p>
+  </div>
+  <script>
+    var tabs = document.getElementsByClassName('tablink');
+    var content = document.getElementsByClassName('tabcontent'); 
+    //원인 기본적으로 표시해야할 HTML 내용을 출력하는 코드가 없다. 
+    //1. 로드하게 하려면 함수를 호출 하기   
+    // changeTab(tabs[0])
+    //2. 핸들러 걸어서 하는 방법 
+    document.body.onload = () => {
+        changeTab(tabs[0])
+    }
+    function changeTab(obj){      
+      for(var i=0;i<3;i++){
+        tabs[i].style.backgroundColor="#f1f1f1";
+        //원인 :  이전에 선택된 컨텐츠를 감추는 부분이 없다
+        // content변수에 들어간 class명 tabcontent이 
+        //  다른게 선택 되었을 때 가려지는 역할
+        content[i].style.display = "none"
+      }
+      obj.style.backgroundColor="#ccc";      
+      var selectTab = document.getElementById(obj.innerHTML);
+      selectTab.style.display="block";
+    }
+  </script>
+</body>
+</html>

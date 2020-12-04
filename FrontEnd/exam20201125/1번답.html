@@ -30,22 +30,22 @@
      <hr>
      <div id="box"></div>
      <p>선택한 색상은 <span id="color">black</span>입니다.</p>
-     <script>
+<script>
 
-         //1. 반환 값이 배열임
-         var btn = document.getElementsByTagName('button');
-         for (var i = 0; i < btn.length; i++) {
-             // 1.1. 배열에 핸들러를 달고 있음 인덱스 값으로 받아줘야대 [i]
-             btn[i].onclick = function () {
-                 var selectedColor = this.innerHTML;
-                 var box = document.getElementById('box');
-                 box.style.backgroundColor = selectedColor;
-                 var color = document.getElementById('color'); //
-                 color.innerHTML = selectedColor; // 컬러 선택 하는걸로 글자가 바뀜
-                 color.style.color = selectedColor;  // 글자에도 컬러를 입힘
-             }
-         }
-     </script>
+    //1. 반환 값이 배열임
+    var btn = document.getElementsByTagName('button');
+    for (var i = 0; i < btn.length; i++) {
+        // 1.1. 배열에 핸들러를 달고 있음 인덱스 값으로 받아줘야대 [i]
+        btn[i].onclick = function () {
+            var selectedColor = this.innerHTML;
+            var box = document.getElementById('box');
+            box.style.backgroundColor = selectedColor;
+            var color = document.getElementById('color'); //
+            color.innerHTML = selectedColor; // 컬러 선택 하는걸로 글자가 바뀜
+            color.style.color = selectedColor;  // 글자에도 컬러를 입힘
+        }
+    }
+</script>
  </body>
  
  </html>​

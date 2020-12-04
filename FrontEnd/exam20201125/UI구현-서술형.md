@@ -1,4 +1,7 @@
-# 1. 문제
+# 1. 문제 
+
+아래 HTML태그에 다음 조건에 맞는 CSS(Cascading Style Sheets)를 작성하여라. (25점)
+
 ```css
 .hello {
     background-color :black;
