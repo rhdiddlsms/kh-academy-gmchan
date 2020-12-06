@@ -85,13 +85,17 @@
   - Zeplin
 
 ## 2.1. 서적
-
-- http://www.yes24.com/Product/Goods/92742567?OzSrank=1
-- http://www.yes24.com/Product/Goods/91213376?OzSrank=3
-- http://www.yes24.com/Product/Goods/90265564?OzSrank=11
-- https://www.typescriptlang.org/
-- http://www.yes24.com/Product/Goods/78233628?OzSrank=1
-- http://www.yes24.com/Product/Goods/73294973?OzSrank=3
+- 모던 자바스크립트
+  - http://www.yes24.com/Product/Goods/92742567?OzSrank=1
+- Node.js교과서
+  - http://www.yes24.com/Product/Goods/91213376?OzSrank=3
+- 타입스크립트 프로그래밍
+  - http://www.yes24.com/Product/Goods/90265564?OzSrank=11
+    - https://www.typescriptlang.org/
+- 리액트를 다루는 기술
+  - http://www.yes24.com/Product/Goods/78233628?OzSrank=1
+- Vue.js 책
+  - http://www.yes24.com/Product/Goods/73294973?OzSrank=3
 
 
 # 3. 포트폴리오
