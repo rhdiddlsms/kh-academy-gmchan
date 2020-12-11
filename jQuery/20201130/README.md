@@ -19,7 +19,6 @@ javascript function :
     }
 ```
 
-
 # 2. CSS
 
 - id : #ele {...} --> $(ele).css(key, value)

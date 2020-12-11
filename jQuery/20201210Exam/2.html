@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+<meta charset="UTF-8">
+<title>네비게이션</title>
+    <style>
+
+        .navi>li {
+        background-color: black;
+        list-style-type: none;
+        width: 150px;
+        height: 50px;
+        text-align: center;
+        float: left;
+        }
+        /* 1. navi에 맞는 크기로 변경시킨다. */
+
+        /* 2. float를 설정 안해서 기본값으로 되어있어서 수직축으로 설정되어있다. */
+
+        .navi>li>a{
+        color: white;
+        text-decoration: none;
+        line-height: 50px;
+        width: 100%;
+        height: 100%;
+        }
+
+        .navi>li:hover{
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor : pointer;
+        }
+        /* 3. 글자에만 올렸을 때 반응을 하는데 영역에 올려놔도 반응해서 크게 반응하도록 효과를 준다. */
+    </style>
+
+</head>
+    <body>
+        <ul class="navi">
+            <li><a href="./html5.html">HTML5</a></li>
+            <li><a href="./css3.html">CSS3</a></li>
+            <li><a href="./javascript.html">JavaScript</a></li>
+            <li><a href="./jQuery.html">jQuery</a></li>
+        </ul>
+    </body>
+
+</html>
